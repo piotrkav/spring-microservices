@@ -1,0 +1,31 @@
+server:
+  port: ${PORT:8888}
+
+spring:
+  application:
+    name: order-service
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: order
+  cloud:
+    stream:
+      bindings:
+        yarnNeededOutput:
+          destination: yarnNeededInput
+          contentType: application/json
+
+  rabbitmq:
+      host: localhost
+      port: 5672
+      username: guest
+      password: guest
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    healthcheck:
+      enabled: true

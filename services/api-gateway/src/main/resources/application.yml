@@ -1,0 +1,41 @@
+server:
+  port: ${PORT:8765}
+
+spring:
+  application:
+    name: api-gateway
+
+zuul:
+  ignoredServices: '*'
+  routes:
+    product-service:
+      path: /api/products/**
+      serviceId: product-service
+      stripPrefix: false
+    shopping-list-service:
+      path: /api/shopping-lists/**
+      serviceId: shopping-list-service
+      stripPrefix: false
+    fabric-service:
+      path: /api/psidi/**
+      serviceId: fabric-service
+      stripPrefix: false
+    order-service:
+      path: /api/psidi2/**
+      serviceId: order-service
+      stripPrefix: false
+
+eureka:
+  client:
+    registerWithEureka: false
+
+# Useful for debugging purposes
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false
+ribbon:
+  ReadTimeout: 100000
+  ConnectTimeout: 100000

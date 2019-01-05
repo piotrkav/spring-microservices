@@ -1,0 +1,24 @@
+server:
+  port: ${PORT:8999}
+
+spring:
+  application:
+    name: fabric-service
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: fabric
+  rabbitmq:
+      host: localhost
+      port: 5672
+      username: guest
+      password: guest
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    healthcheck:
+      enabled: true
