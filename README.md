@@ -5,4 +5,4 @@ It aims to show how to combine diffrent services working on diffrent port to wor
 
 **Architecture diagram**
 
-![Microservices architecture](docs/microservices-architecture-diagram.jpg)
+![Microservices architecture](services/PSIDI_component_diagram.png)
